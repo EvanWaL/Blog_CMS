@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { increment, decrement } from './actions'
+import { increment, decrement, changeValue } from './actions'
+import { Button, Input } from 'antd'
 
 class Counter extends React.Component {
   state = { count: 0 }
@@ -13,8 +14,27 @@ class Counter extends React.Component {
     this.props.decrement()
   }
 
+  changeValue = () => {
+    this.props.changeValue()
+  }
+
   render () {
-    return <div />
+    return (
+      <Fragment>
+        <div style={{ display: 'flex' }}>
+          <Button type="primary" onClick={this.increment}>
+            +
+          </Button>
+          <div style={{ width: '100px' }}>
+            <Input placeholder="Basic usage" value={this.props.count} />
+          </div>
+
+          <Button type="primary" onClick={this.decrement}>
+            -
+          </Button>
+        </div>
+      </Fragment>
+    )
   }
 }
 function mapStateToProps (state) {

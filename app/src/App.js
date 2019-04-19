@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import './App.css'
+import Counter from './Counter'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header" />
+        <Counter />
       </div>
     )
   }

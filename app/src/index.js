@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux'
 import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import * as serviceWorker from './serviceWorker'
+
 import 'normalize.css'
 import App from './App'
 
