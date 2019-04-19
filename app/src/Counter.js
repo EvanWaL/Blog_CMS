@@ -19,6 +19,7 @@ class Counter extends React.Component {
   }
 
   render () {
+    console.log(this)
     return (
       <Fragment>
         <div style={{ display: 'flex' }}>
@@ -37,9 +38,11 @@ class Counter extends React.Component {
     )
   }
 }
-function mapStateToProps (state) {
-  return { count: state.count }
-}
+// function mapStateToProps (state) {
+//   console.log(state)
+//   return { count: state.count }
+// }
+const mapStateToProps = state => ({ count: state.counter.count })
 
 // 在这个对象中, 属性名会成为 prop 的 names,
 // 属性值应该是 action 生成器函数.
