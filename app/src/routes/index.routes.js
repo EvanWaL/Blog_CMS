@@ -9,20 +9,27 @@ export const Login = loadable({
   loader: () => import('../containers/Login'),
   loading: Loading
 })
+export const Counter = loadable({
+  loader: () => import('../containers/Counter'),
+  loading: Loading
+})
 
 const routes = [
   {
     path: '/',
     exact: true,
-    component: Home
+    component: Home,
+    requiresAuth: true
   },
   {
     path: '/login',
-    component: Login
+    component: Login,
+    requiresAuth: false
   },
   {
-    path: '/home',
-    component: Home
+    path: '/counter',
+    component: Counter,
+    requiresAuth: true
   }
 ]
 export default routes
