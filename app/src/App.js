@@ -1,32 +1,44 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom'
 
 import './App.css'
 import Counter from './Counter'
-import { connect } from 'react-redux'
+import Login from './containers/Login'
+import Home from './containers/Home'
 
 class App extends Component {
   constructor () {
     super()
+    this.state = {
+      loggedIn: sessionStorage.getItem('token')
+    }
   }
-
-  increment = () => {
-    this.props.dispatch({ type: 'INCREMENT' })
-  }
-
-  decrement = () => {
-    this.props.dispatch({ type: 'DECREMENT' })
-  }
-
   render () {
     return (
-      <div className="App">
-        <header className="App-header" />
-        <Counter />
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header" />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() =>
+                !this.state.loggedIn ? <Redirect to="/login" /> : <Home />
+              }
+            />
+            <Route exact path="/counter" component={Counter} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/home" component={Home} />
+          </Switch>
+        </div>
+      </Router>
     )
   }
-} // 添加这个函数:
-function mapStateToProps (state) {
-  return { count: state.count }
 }
-export default connect(mapStateToProps)(App)
+
+export default App
