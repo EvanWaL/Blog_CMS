@@ -6,4 +6,4 @@ export function increment () {
 }
 export const decrement = () => ({ type: DECREMENT })
 
-export const changeValue = () => ({ type: CHANGE_VALUE })
+export const changeValue = value => ({ type: CHANGE_VALUE, value })

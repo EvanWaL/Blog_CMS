@@ -12,6 +12,8 @@ export default function reducer (state = initialState, action) {
       return { count: state.count - 1 }
     case 'RESET':
       return { count: 0 }
+    case CHANGE_VALUE:
+      return { count: action.value.value }
     default:
       return state
   }

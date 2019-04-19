@@ -14,12 +14,15 @@ class Counter extends React.Component {
     this.props.decrement()
   }
 
-  changeValue = () => {
-    this.props.changeValue()
+  changeValue = value => {
+    this.props.changeValue({ value })
+  }
+  handleChangeValue = e => {
+    this.changeValue(e.target.value)
   }
 
   render () {
-    console.log(this)
+    // console.log(this)
     return (
       <Fragment>
         <div style={{ display: 'flex' }}>
@@ -27,7 +30,11 @@ class Counter extends React.Component {
             +
           </Button>
           <div style={{ width: '100px' }}>
-            <Input placeholder="Basic usage" value={this.props.count} />
+            <Input
+              placeholder="Basic usage"
+              value={this.props.count}
+              onChange={this.handleChangeValue}
+            />
           </div>
 
           <Button type="primary" onClick={this.decrement}>
@@ -49,7 +56,8 @@ const mapStateToProps = state => ({ count: state.counter.count })
 // 它们跟 `dispatch` 绑定起来.
 const mapDispatchToProps = {
   increment,
-  decrement
+  decrement,
+  changeValue
 }
 
 export default connect(
