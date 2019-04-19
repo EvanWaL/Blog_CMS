@@ -1,0 +1,7 @@
+{
+  "list": {
+    "url": "list",
+    "method": "POST",
+    "baseUrl": "http://127.0.0.1:7001"
+  }
+}
