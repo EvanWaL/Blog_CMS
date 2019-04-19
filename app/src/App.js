@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import renderRoutes from './utils/renderRoutes'
+import { connect } from 'react-redux'
 // import { renderRoutes } from 'react-router-config'
 
 import 'normalize.css'
@@ -22,4 +23,14 @@ class App extends Component {
   }
 }
 
-export default App
+const mapStateToProps = state => ({ authed: state.login.authed })
+
+// 在这个对象中, 属性名会成为 prop 的 names,
+// 属性值应该是 action 生成器函数.
+// 它们跟 `dispatch` 绑定起来.
+const mapDispatchToProps = {}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
