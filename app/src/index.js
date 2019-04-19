@@ -1,24 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import logger from 'redux-logger'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { ConnectedRouter } from 'connected-react-router'
+
 import * as serviceWorker from './serviceWorker'
+import configureStore, { history } from './reducer/store'
 
-import rootReducer from './rootReducer'
-
-import 'normalize.css'
 import App from './App'
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(logger))
-)
+const store = configureStore(/* provide initial state if any */)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 )

@@ -1,4 +1,5 @@
-import { INCREMENT, DECREMENT, CHANGE_VALUE } from './actions'
+import { INCREMENT, DECREMENT, CHANGE_VALUE } from '../actions/counter.action'
+
 const initialState = {
   count: 0
 }

@@ -1,41 +1,16 @@
 import React, { Component } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
 
+import 'normalize.css'
 import './App.css'
-import Counter from './Counter'
-import Login from './containers/Login'
-import Home from './containers/Home'
+import routes from './routes/index.routes'
 
 class App extends Component {
-  constructor () {
-    super()
-    this.state = {
-      loggedIn: sessionStorage.getItem('token')
-    }
-  }
   render () {
     return (
       <Router>
-        <div className="App">
-          <header className="App-header" />
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={() =>
-                !this.state.loggedIn ? <Redirect to="/login" /> : <Home />
-              }
-            />
-            <Route exact path="/counter" component={Counter} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/home" component={Home} />
-          </Switch>
-        </div>
+        <div className="App">{renderRoutes(routes)}</div>
       </Router>
     )
   }
