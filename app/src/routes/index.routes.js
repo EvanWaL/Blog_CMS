@@ -1,5 +1,14 @@
-import Home from '../containers/Home'
-import Login from '../containers/Login'
+import loadable from 'react-loadable'
+import Loading from '../components/Loading'
+
+export const Home = loadable({
+  loader: () => import('../containers/Home'),
+  loading: Loading
+})
+export const Login = loadable({
+  loader: () => import('../containers/Login'),
+  loading: Loading
+})
 
 const routes = [
   {
