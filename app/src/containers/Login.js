@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { Row, Col, Input, Button } from 'antd'
+import Api from '../api'
 
 class LoginContainer extends Component {
+  constructor () {
+    super()
+    console.log(Api)
+    const res = Api.list()
+  }
   render () {
     return (
       <div>

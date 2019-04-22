@@ -1,6 +1,1 @@
-{
-  "files.autoSave": "onFocusChange",
-  "editor.formatOnSave": true,
-  "prettier.eslintIntegration": true,
-  "editor.formatOnPaste": true
-}
+{}
