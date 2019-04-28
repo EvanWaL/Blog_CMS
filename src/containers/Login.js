@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Row, Col, Input, Button } from 'antd'
 import Api from '../api'
 
+import style from './login.module.scss'
+
 class LoginContainer extends Component {
   constructor () {
     super()
@@ -10,16 +12,20 @@ class LoginContainer extends Component {
   }
   render () {
     return (
-      <div>
+      <div className={style.loginWrapper}>
         <Row>
-          <Col xs={2} sm={4} md={6} lg={8} xl={10} />
-          <Col xs={20} sm={16} md={12} lg={8} xl={4}>
-            <div style={{ backgroundColor: 'blue' }}>
-              <Button>a</Button>
-              <Button>a</Button>
+          <Col xs={2} md={6} lg={6} xl={8} />
+          <Col xs={20} md={12} lg={10} xl={8}>
+            <div className={style.loginBox}>
+              <Input placeholder="Basic usage" />
+              <Input placeholder="Basic usage" />
+              <div>
+                <Button>a</Button>
+                <Button>a</Button>
+              </div>
             </div>
           </Col>
-          <Col xs={2} sm={4} md={6} lg={8} xl={10} />
+          <Col xs={2} md={6} lg={6} xl={8} />
         </Row>
       </div>
     )
