@@ -76,6 +76,7 @@ class LoginContainer extends Component {
 
   handleSubmit = () => {
     console.table(this.state)
+    const res = Api.list()
   }
 
   render () {
