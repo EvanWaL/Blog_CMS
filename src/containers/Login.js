@@ -57,11 +57,11 @@ class LoginContainer extends Component {
     super()
     // const res = Api.list()
     this.state = {
-      userName: '',
+      username: '',
       password: ''
     }
   }
-  handleUserNameChange = event => {
+  handleusernameChange = event => {
     this.setState({})
   }
 
@@ -96,8 +96,8 @@ class LoginContainer extends Component {
                 placeholder="用户名"
                 size="large"
                 className={style.input}
-                value={this.state.userName}
-                onChange={this.handleInputChange.bind(this, 'userName')}
+                value={this.state.username}
+                onChange={this.handleInputChange.bind(this, 'username')}
               />
               <Input.Password
                 placeholder="密码"
