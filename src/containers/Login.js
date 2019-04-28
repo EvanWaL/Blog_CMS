@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Row, Col, Input, Button, Icon } from 'antd'
-import Api from '../api'
 
 import style from './login.module.scss'
+import { login } from '../actions/login.action'
 
 const PandaSvg = () => (
   <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor">
@@ -76,7 +77,7 @@ class LoginContainer extends Component {
 
   handleSubmit = () => {
     console.table(this.state)
-    const res = Api.list()
+    this.props.login()
   }
 
   render () {
@@ -123,4 +124,14 @@ class LoginContainer extends Component {
     )
   }
 }
-export default LoginContainer
+
+const mapStateToProps = state => ({ count: state.counter.count })
+
+const mapDispatchToProps = {
+  login
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginContainer)
