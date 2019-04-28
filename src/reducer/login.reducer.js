@@ -6,10 +6,6 @@ const initialState = {
 export default function reducer (state = initialState, action) {
   // FIX
   switch (action.type) {
-    case LOGIN:
-      console.log(1)
-      return { ...state }
-
     default:
       return state
   }

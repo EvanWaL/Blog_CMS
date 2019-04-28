@@ -1,11 +1,12 @@
-import { call, put, takeEvery, all, fork } from 'redux-saga/effects'
-import { LOGIN, login } from '../actions/login.action'
+import { call, put, takeEvery, take, all, fork } from 'redux-saga/effects'
+import { LOGIN } from '../actions/login.action'
 import Api from '../api/index'
 
-export function * fetchData (action) {
+function * fetchData (action) {
   try {
-    console.log(2)
-    const data = yield call(Api.login, action.payload.url)
+    console.log(Api)
+    const data = yield call(Api.login(action.payload))
+
     yield put({ type: 'FETCH_SUCCEEDED', data })
   } catch (error) {
     yield put({ type: 'FETCH_FAILED', error })
@@ -13,7 +14,7 @@ export function * fetchData (action) {
 }
 
 function * watchFetchData () {
-  yield * takeEvery(login, fetchData)
+  yield takeEvery(LOGIN, fetchData)
 }
 export default function * root () {
   yield all([fork(watchFetchData)])
