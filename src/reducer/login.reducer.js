@@ -1,15 +1,15 @@
-import { login } from '../actions/login.action'
+import { LOGIN } from '../actions/login.action'
 const initialState = {
   authed: false
 }
 
 export default function reducer (state = initialState, action) {
-  console.log('reducer', state, action)
   // FIX
-  switch (action) {
-    case login:
+  switch (action.type) {
+    case LOGIN:
       console.log(1)
-      break
+      return { ...state }
+
     default:
       return state
   }

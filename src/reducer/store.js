@@ -7,8 +7,8 @@ import { routerMiddleware } from 'connected-react-router'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from 'redux-logger'
 
-import createRootReducer from '../reducer/rootReducer'
 import mySaga from '../sagas'
+import createRootReducer from '../reducer/rootReducer'
 
 const sagaMiddleware = createSagaMiddleware()
 

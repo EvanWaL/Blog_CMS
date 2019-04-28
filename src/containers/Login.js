@@ -89,7 +89,7 @@ class LoginContainer extends Component {
             <div className={style.loginBox}>
               <div className={style.iconWrapper}>
                 <PandaIcon style={{ fontSize: '150px' }} />
-                <p>发撒打发士大夫士大夫大师傅</p>
+                <p>自留地</p>
               </div>
               <Input
                 placeholder="用户名"

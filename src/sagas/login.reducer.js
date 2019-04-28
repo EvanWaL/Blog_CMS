@@ -1,10 +1,10 @@
 import { call, put, takeEvery, all, fork } from 'redux-saga/effects'
-import { login } from '../actions/login.action'
+import { LOGIN, login } from '../actions/login.action'
 import Api from '../api/index'
 
 export function * fetchData (action) {
   try {
-    console.log(1)
+    console.log(2)
     const data = yield call(Api.login, action.payload.url)
     yield put({ type: 'FETCH_SUCCEEDED', data })
   } catch (error) {
