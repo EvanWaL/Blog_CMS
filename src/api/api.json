@@ -1,0 +1,7 @@
+{
+  "login": {
+    "url": "v1/login",
+    "method": "POST",
+    "baseURL": "http://localhost:7001"
+  }
+}

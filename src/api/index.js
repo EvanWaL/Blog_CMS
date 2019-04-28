@@ -1,4 +1,4 @@
-import http from '../http'
+import http from './http'
 import apis from './api.json'
 
 const API = {}
@@ -14,13 +14,14 @@ const matchUri = (url, params) => {
 }
 
 for (let key of Object.keys(apis)) {
-  const { url, method } = apis[key]
+  const { url, method, ...config } = apis[key]
 
-  API[key] = (data) => {
+  API[key] = data => {
     return http(
       url.includes('$') ? matchUri(url, data) : url,
       method,
-      data
+      data,
+      config
     )
   }
 }

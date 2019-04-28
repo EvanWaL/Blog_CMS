@@ -1,10 +1,10 @@
-import { INCREMENT, DECREMENT, CHANGE_VALUE } from './actions'
+import { INCREMENT, DECREMENT, CHANGE_VALUE } from '../actions/counter.action'
+
 const initialState = {
   count: 0
 }
 
 export default function reducer (state = initialState, action) {
-  console.log('reducer', state, action)
   switch (action.type) {
     case INCREMENT:
       return { count: state.count + 1 }

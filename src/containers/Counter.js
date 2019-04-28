@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { increment, decrement, changeValue } from './actions'
+import { increment, decrement, changeValue } from '../actions/counter.action'
 import { Button, Input } from 'antd'
 
 class Counter extends React.Component {
@@ -8,7 +8,6 @@ class Counter extends React.Component {
 
   increment = () => {
     this.props.increment()
-    // << 在这使用
   }
   decrement = () => {
     this.props.decrement()
@@ -22,7 +21,6 @@ class Counter extends React.Component {
   }
 
   render () {
-    // console.log(this)
     return (
       <Fragment>
         <div style={{ display: 'flex' }}>
