@@ -1,4 +1,4 @@
-import { call, put, takeEvery, all, fork, any } from 'redux-saga/effects'
+import { call, put, takeEvery, all, fork } from 'redux-saga/effects'
 import { login } from '../actions/login.action'
 import Api from '../api/index'
 
@@ -13,7 +13,7 @@ export function * fetchData (action) {
 }
 
 function * watchFetchData () {
-  return yield * takeEvery(login, fetchData)
+  yield * takeEvery(login, fetchData)
 }
 export default function * root () {
   yield all([fork(watchFetchData)])

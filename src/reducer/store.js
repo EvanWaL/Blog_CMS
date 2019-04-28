@@ -19,7 +19,7 @@ export default function configureStore (preloadedState = {}) {
     createRootReducer(history), // root reducer with router state
     preloadedState,
     composeWithDevTools(
-      applyMiddleware(logger, sagaMiddleware, routerMiddleware(history))
+      applyMiddleware(logger, routerMiddleware(history), sagaMiddleware)
     )
   )
   sagaMiddleware.run(mySaga)
