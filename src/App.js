@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import renderRoutes from './utils/renderRoutes'
+import { Switch, withRouter } from 'react-router-dom'
+
 import { connect } from 'react-redux'
-// import { renderRoutes } from 'react-router-config'
+
+import routes from './routes/index.routes'
+import renderRoutes from './utils/renderRoutes'
 
 import 'normalize.css'
 import './App.css'
-import routes from './routes/index.routes'
 
-const authed = false // 如果登陆之后可以利用redux修改该值(关于redux不在我们这篇文章的讨论范围之内）
 const authPath = '/login' // 默认未登录的时候返回的页面，可以自行设置
 
 class App extends Component {
   render () {
     return (
-      <Router>
-        <div className="App">
-          <Switch>{renderRoutes(routes, authed, authPath)}</Switch>
-        </div>
-      </Router>
+      <div className="App">
+        <Switch>{renderRoutes(routes, this.props.authed, authPath)}</Switch>
+        {/* <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/counter" render={() => <div>Miss</div>} />
+        </Switch> */}
+      </div>
     )
   }
 }
@@ -30,7 +32,9 @@ const mapStateToProps = state => ({ authed: state.login.authed })
 // 它们跟 `dispatch` 绑定起来.
 const mapDispatchToProps = {}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+)

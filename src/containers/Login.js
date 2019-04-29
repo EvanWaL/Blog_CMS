@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import { Row, Col, Input, Button, Icon } from 'antd'
 
 import style from './login.module.scss'
@@ -57,11 +58,11 @@ class LoginContainer extends Component {
     super()
     // const res = Api.list()
     this.state = {
-      userName: '',
+      username: '',
       password: ''
     }
   }
-  handleUserNameChange = event => {
+  handleusernameChange = event => {
     this.setState({})
   }
 
@@ -76,8 +77,8 @@ class LoginContainer extends Component {
   }
 
   handleSubmit = () => {
-    console.table(this.props.login)
-
+    // push('/home')
+    // console.table(this.props.login)
     this.props.login({ ...this.state })
   }
 
@@ -96,8 +97,8 @@ class LoginContainer extends Component {
                 placeholder="用户名"
                 size="large"
                 className={style.input}
-                value={this.state.userName}
-                onChange={this.handleInputChange.bind(this, 'userName')}
+                value={this.state.username}
+                onChange={this.handleInputChange.bind(this, 'username')}
               />
               <Input.Password
                 placeholder="密码"
