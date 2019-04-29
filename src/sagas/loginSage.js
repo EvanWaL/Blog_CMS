@@ -7,9 +7,9 @@ function * fetchData (action) {
   try {
     const res = yield call(Api.login, action.payload)
     if (res && res.data && res.data.code === 200) {
+      yield put({ type: 'LOGIN_SUCCEEDED', payload: true })
       yield put(push('/counter'))
     }
-    // yield put({ type: 'FETCH_SUCCEEDED', data })
   } catch (error) {
     console.table(error)
     yield put({ type: 'FETCH_FAILED', error })
