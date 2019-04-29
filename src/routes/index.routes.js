@@ -29,7 +29,7 @@ const routes = [
   {
     path: '/counter',
     component: Counter,
-    requiresAuth: true
+    requiresAuth: false
   }
 ]
 export default routes

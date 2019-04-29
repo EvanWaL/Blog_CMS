@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Row, Col, Input, Button, Icon } from 'antd'
+import { push } from 'connected-react-router'
 
 import style from './login.module.scss'
 import { login } from '../actions/login.action'
@@ -76,9 +77,9 @@ class LoginContainer extends Component {
   }
 
   handleSubmit = () => {
-    console.table(this.props.login)
-
-    this.props.login({ ...this.state })
+    push('/home')
+    // console.table(this.props.login)
+    // this.props.login({ ...this.state })
   }
 
   render () {
