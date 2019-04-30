@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-import { Switch, withRouter } from 'react-router-dom'
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
 import routes from './routes/index.routes'
 // import renderRoutes from './utils/renderRoutes'
 import { renderRoutes } from 'react-router-config'
+
+import Router from './utils/Router'
+import { AuthUserProvider } from './utils/AuthUser'
+import AuthorizedRoute from './utils/AuthorizedRoute'
+import UnauthorizedLayout from './layouts/UnauthorizedLayout'
+import AuthorizedLayout from './layouts/AuthorizedLayout'
 
 import 'normalize.css'
 import './App.css'
@@ -15,13 +21,15 @@ const authPath = '/login' // 默认未登录的时候返回的页面，可以自
 class App extends Component {
   render () {
     return (
-      <div className="App">
-        <Switch>{renderRoutes(routes, this.props.authed, authPath)}</Switch>
-        {/* <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/counter" render={() => <div>Miss</div>} />
-        </Switch> */}
-      </div>
+      <Router>
+        <AuthUserProvider>
+          <Switch>
+            <Route path="/login" component={UnauthorizedLayout} />
+            <AuthorizedRoute path="/counter" component={AuthorizedLayout} />
+            <Redirect to="/counter" />
+          </Switch>
+        </AuthUserProvider>
+      </Router>
     )
   }
 }
