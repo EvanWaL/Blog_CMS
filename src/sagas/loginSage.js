@@ -12,7 +12,7 @@ function * fetchData (action) {
     if (res && res.data && res.data.code === 200) {
       Cookies.set(cookieName, { logged: true })
       yield put({ type: 'LOGIN_SUCCEEDED', payload: true })
-      yield put(push('/counter'))
+      // yield put(push('/counter'))
     }
   } catch (error) {
     console.table(error)

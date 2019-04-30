@@ -22,7 +22,7 @@ class Counter extends React.Component {
 
   render () {
     return (
-      <Fragment>
+      <div>
         <div style={{ display: 'flex' }}>
           <Button type="primary" onClick={this.increment}>
             +
@@ -39,7 +39,7 @@ class Counter extends React.Component {
             -
           </Button>
         </div>
-      </Fragment>
+      </div>
     )
   }
 }

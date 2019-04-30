@@ -26,7 +26,7 @@ class App extends Component {
           <Switch>
             <Route path="/login" component={UnauthorizedLayout} />
             <AuthorizedRoute path="/counter" component={AuthorizedLayout} />
-            <Redirect to="/counter" />
+            {/* <Redirect to="/counter" /> */}
           </Switch>
         </AuthUserProvider>
       </Router>

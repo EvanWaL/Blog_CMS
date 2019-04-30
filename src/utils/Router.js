@@ -1,24 +1,27 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 
 // Normalize all paths to not have trailing slashes even if they
 // matched <Route> with one:
-const Router = ({ children }) => (
-  // <BrowserRouter>
-  <Route
-    render={({
-      history: {
-        location: { pathname, search, hash }
+const Router = ({ children }) => {
+  // debugger
+  return (
+    // <BrowserRouter>
+    <Route
+      render={({
+        history: {
+          location: { pathname, search, hash }
+        }
+      }) =>
+        pathname !== '/' && pathname.slice(-1) === '/' ? (
+          <Redirect to={`${pathname.slice(0, -1)}${search}${hash}`} />
+        ) : (
+          children
+        )
       }
-    }) =>
-      pathname !== '/' && pathname.slice(-1) === '/' ? (
-        <Redirect to={`${pathname.slice(0, -1)}${search}${hash}`} />
-      ) : (
-        children
-      )
-    }
-  />
-  // </BrowserRouter>
-)
+    />
+    // </BrowserRouter>
+  )
+}
 
 export default Router
