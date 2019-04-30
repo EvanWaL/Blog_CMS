@@ -4,7 +4,8 @@ import { Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import routes from './routes/index.routes'
-import renderRoutes from './utils/renderRoutes'
+// import renderRoutes from './utils/renderRoutes'
+import { renderRoutes } from 'react-router-config'
 
 import 'normalize.css'
 import './App.css'
