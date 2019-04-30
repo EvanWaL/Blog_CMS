@@ -22,6 +22,8 @@ class App extends Component {
           <Switch>
             <Route path="/login" component={UnauthorizedLayout} />
             <AuthorizedRoute path="/home" component={AuthorizedLayout} />
+            <AuthorizedRoute path="/home" component={AuthorizedLayout} />
+            <AuthorizedRoute path="/home" component={AuthorizedLayout} />
             <Route path="/404" component={UnauthorizedLayout} />
             <Redirect to="/404" />
           </Switch>
