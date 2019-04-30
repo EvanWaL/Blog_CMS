@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import AuthorizedPrimaryHeader from '../ui/AuthorizedPrimaryHeader'
 import CounterLayout from '../containers/Counter'
-// import ProjectSubLayout from './ProjectSubLayout'
+import HomeLayout from '../containers/Home'
 
 const AuthorizedLayout = ({ match }) => {
   debugger
@@ -10,7 +10,8 @@ const AuthorizedLayout = ({ match }) => {
     <div className="app authorized-layout">
       {/* <AuthorizedPrimaryHeader /> */}
       <Switch>
-        <Route path={match.url} exact component={CounterLayout} />
+        <Route path={match.url} exact component={HomeLayout} />
+        <Route path="/counter" component={() => <div>id</div>} />
       </Switch>
     </div>
   )

@@ -9,7 +9,7 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState()
 
-  function handleSubmit(e) {
+  function handleSubmit (e) {
     e.preventDefault()
 
     if (username === 'react' && password === 'react') {
@@ -25,16 +25,27 @@ const Login = ({ history }) => {
       <Card style={{ minHeight: '10em' }}>
         <h1 className="heading-2">Welcome to Firebase, almost...</h1>
         <p>
-          This mock application will demonstrate React Router with nested layouts and a strategy for authenticated
-          (protected) routes.
+          This mock application will demonstrate React Router with nested
+          layouts and a strategy for authenticated (protected) routes.
         </p>
         <p>
-          The username is <strong>react</strong> and the password is <strong>react</strong>
+          The username is <strong>react</strong> and the password is{' '}
+          <strong>react</strong>
         </p>
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         <form onSubmit={handleSubmit} className="spacing">
-          <input type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} required />
-          <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={e => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
           <button type="submit" className="button">
             Login
           </button>
