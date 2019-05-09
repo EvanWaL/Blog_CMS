@@ -11,14 +11,14 @@ export default WrappedComponent => {
   class HOC extends Component {
     render () {
       console.log(this.props)
-      const { isAuthenticated } = this.props
+      const { isAuthenticated, history } = this.props
 
       // const isAuthenticated = JSON.parse(
       //   sessionStorage.getItem('isAuthenticated')
       // )
 
       if (!isAuthenticated) {
-        // history.push('/login')
+        history.push('/404')
         return null
       }
 

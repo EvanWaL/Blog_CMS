@@ -5,6 +5,7 @@ import PrivateRoute from './PrivateRoute'
 import Login from '../containers/Login'
 import Home from '../containers/Home'
 import Counter from '../containers/Counter'
+import NotFound from '../containers/404'
 
 export default class Routes extends Component {
   render () {
@@ -14,6 +15,7 @@ export default class Routes extends Component {
         <Route component={Login} exact path="/login" />
         {/* <Route component={Home} exact path="/home" /> */}
         <Route component={PrivateRoute(Counter)} exact path="/counter" />
+        <Route component={NotFound} exact path="/404" />
         <Redirect to="/404" />
       </Switch>
     )
