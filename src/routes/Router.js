@@ -4,9 +4,7 @@ import PrivateRoute from './PrivateRoute'
 
 import Login from '../containers/Login'
 import Home from '../containers/Home'
-import CounterComponent from '../containers/Counter'
-
-const Counter = PrivateRoute(CounterComponent)
+import Counter from '../containers/Counter'
 
 export default class Routes extends Component {
   render () {
@@ -15,7 +13,7 @@ export default class Routes extends Component {
         <Redirect exact from="/" to="/dashboard" />
         <Route component={Login} exact path="/login" />
         {/* <Route component={Home} exact path="/home" /> */}
-        <Route component={Counter} exact path="/counter" />
+        <Route component={PrivateRoute(Counter)} exact path="/counter" />
         <Redirect to="/404" />
       </Switch>
     )

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-function authGuard (WrappedComponent) {
-  return @connect(state => ({
+export default WrappedComponent => {
+  @withRouter
+  @connect(state => ({
     val: state.counter,
     isAuthenticated: state.login.isAuthenticated
   }))
@@ -24,6 +25,7 @@ function authGuard (WrappedComponent) {
       return <WrappedComponent {...this.props} />
     }
   }
-}
 
-export default WrappedComponent => withRouter(authGuard(WrappedComponent))
+  return HOC
+}
+// export default WrappedComponent => authGuard(WrappedComponent)
