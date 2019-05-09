@@ -1,6 +1,6 @@
 import { LOGIN } from '../actions/login.action'
 const initialState = {
-  authed: false
+  isAuthenticated: false
 }
 
 export default function reducer (state = initialState, action) {
@@ -8,7 +8,7 @@ export default function reducer (state = initialState, action) {
   switch (action.type) {
     case 'LOGIN_SUCCEEDED':
       return {
-        authed: true
+        isAuthenticated: true
       }
     default:
       return state

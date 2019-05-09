@@ -12,32 +12,18 @@ import PrivateRoute from './routes/PrivateRoute'
 // import UnauthorizedLayout from './layouts/UnauthorizedLayout'
 // import AuthorizedLayout from './layouts/AuthorizedLayout'
 
-import Home from './containers/Home'
-import Login from './containers/Login'
-import Counter from './containers/Counter'
-
 import 'normalize.css'
 import './App.css'
 
 class App extends Component {
   render () {
-    return (
-      <Router>
-        {/* <AuthUserProvider> */}
-        <Switch>
-          <Route path="/login" component={Login} />
-          <PrivateRoute path="/home" component={Home} />
-          <PrivateRoute path="/counter" component={Counter} />
-          {/* <Route path="/404" component={UnauthorizedLayout} /> */}
-          <Redirect to="/404" />
-        </Switch>
-        {/* </AuthUserProvider> */}
-      </Router>
-    )
+    return <Router />
   }
 }
 
-const mapStateToProps = state => ({ authed: state.login.authed })
+const mapStateToProps = state => ({
+  isAuthenticated: state.login.isAuthenticated
+})
 
 const mapDispatchToProps = {}
 
