@@ -5,17 +5,12 @@ import { connect } from 'react-redux'
 export default WrappedComponent => {
   @withRouter
   @connect(state => ({
-    val: state.counter,
     isAuthenticated: state.login.isAuthenticated
   }))
   class HOC extends Component {
     render () {
       console.log(this.props)
       const { isAuthenticated, history } = this.props
-
-      // const isAuthenticated = JSON.parse(
-      //   sessionStorage.getItem('isAuthenticated')
-      // )
 
       if (!isAuthenticated) {
         history.push('/404')
@@ -28,4 +23,3 @@ export default WrappedComponent => {
 
   return HOC
 }
-// export default WrappedComponent => authGuard(WrappedComponent)
